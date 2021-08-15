@@ -1,0 +1,28 @@
+<div id="tweets">
+
+    <form action="/tweets" method="post">
+      <input id="tweets-textbox" type="text" name="text" placeholder="example text">
+
+      <input id="tweets-submit" type="submit" value="post">
+    </form>
+  
+    <% tweets.forEach((tweet, index) => { %>
+      <span id="tweets-<%= index %>"><%= tweet.text %></span>
+      <div id="tweets-<%= index %>">
+       <i>commented at <%= tweet.createdAt %></i>
+      </div>
+      
+     
+    
+  
+      <form action="/tweets/<%= tweet.id %>?_method=DELETE" method="post">
+        <input id="tweets-<%= index %>-delete" type="submit" value="delete">
+      </form>
+  
+      <% }) %>
+
+    
+
+  
+  </div>
+  
